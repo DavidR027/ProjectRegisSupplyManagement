@@ -9,4 +9,5 @@ public class VendorRepository : GeneralRepository<Vendor>, IVendorRepository
     public VendorRepository(RegisterDbContext context) : base(context)
     {
     }
+
 }

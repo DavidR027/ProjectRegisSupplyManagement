@@ -1,11 +1,9 @@
-﻿namespace API.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace API.Entities;
 
 public class Vendor
 {
-    public Vendor()
-    {
-        Employees = new HashSet<Employee>();
-    }
 
     public string Guid { get; set; } = null!;
     public string CompanyName { get; set; } = null!;
@@ -13,11 +11,13 @@ public class Vendor
     public string? CompanyEmail { get; set; }
     public string? Phone { get; set; }
     public byte[]? Photo { get; set; }
+    public string? Password { get; set; }
     public DateTime CreateDate { get; set; }
     public bool IsApproved { get; set; }
     public string? ApprovedBy { get; set; }
+    public bool IsDeleted { get; set; }
     public string? BusinessField { get; set; }
     public string? BusinessType { get; set; }
 
-    public virtual ICollection<Employee> Employees { get; set; }
+    public virtual Employee EmployeeNavigation { get; set; } = null!;
 }
